@@ -459,6 +459,72 @@
             font-size: 14px;
         }
         
+
+        /* Team Section */
+        .team {
+            padding: 120px 40px;
+            background: white;
+        }
+
+        .team-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .team-card {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 40px 28px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            border-color: #667eea;
+            box-shadow: 0 20px 50px rgba(6, 182, 212, 0.12);
+        }
+
+        .team-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            font-weight: 800;
+            margin: 0 auto 20px;
+        }
+
+        .team-card h3 {
+            font-size: 20px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 6px;
+        }
+
+        .team-role {
+            font-size: 13px;
+            font-weight: 600;
+            color: #0891b2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .team-location {
+            font-size: 13px;
+            color: #888;
+        }
+
+
         /* CTA Section */
         .cta-section {
             padding: 120px 40px;
@@ -532,6 +598,10 @@
             color: #999;
         }
         
+        a {
+            text-decoration: none;
+        }
+
         /* Responsive Improvements */
         @media (max-width: 1024px) {
             nav .container { padding: 0 20px; }
@@ -576,6 +646,9 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
             .testimonials-grid {
                 grid-template-columns: 1fr;
             }
@@ -602,17 +675,20 @@
                 grid-template-columns: 1fr;
             }
             
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
             .hero-buttons {
                 flex-direction: column;
             }
 
-            a {
-                text-decoration:none;
-            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Navigation -->
     <nav>
         <div class="container">
             <div class="logo"><a href="/adgency/index2.html">CreativeMinds</a></div>
@@ -620,7 +696,7 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#services">Services</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#team">Team</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact" class="cta-btn">Get Started</a></li>
             </ul>
@@ -632,7 +708,8 @@
             </button>
         </div>
     </nav>
-
+    
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -662,6 +739,7 @@
         </div>
     </section>
 
+    <!-- Services Section -->
     <section class="services" id="services">
         <div class="section-header">
             <div class="section-label">What We Do</div>
@@ -702,6 +780,7 @@
         </div>
     </section>
 
+    <!-- Portfolio Section -->
     <section class="portfolio" id="portfolio">
         <div class="section-header">
             <div class="section-label">Our Work</div>
@@ -740,6 +819,7 @@
         </div>
     </section>
 
+    <!-- Stats Section -->
     <section class="stats-section">
         <div class="stats-grid">
             <div class="stat-item">
@@ -761,11 +841,48 @@
         </div>
     </section>
 
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <div class="section-header">
+            <div class="section-label">Our People</div>
+            <h2 class="section-title">The Men Behind CreativeMinds</h2>
+            <p class="section-subtitle">A passionate team of builders, strategists, and technologists operating across two continents to deliver world-class results.</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar">SR</div>
+                <h3>Syed A. Raza</h3>
+                <div class="team-role">Head of Development</div>
+                <div class="team-location">📍 Karachi, Pakistan</div>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">KI</div>
+                <h3>Khurram Ikram</h3>
+                <div class="team-role">Project Manager</div>
+                <div class="team-location">📍 Karachi, Pakistan</div>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">SK</div>
+                <h3>Syed Kashan</h3>
+                <div class="team-role">Chief Executive Officer</div>
+                <div class="team-location">📍 Canada</div>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">+</div>
+                <h3>You?</h3>
+                <div class="team-role">Join Our Team</div>
+                <div class="team-location">📍 Open Position</div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
         <div class="section-header">
             <div class="section-label">Testimonials</div>
             <h2 class="section-title">What Clients Say About Us</h2>
-            <p class="section-subtitle">Don't just take our word for it — hear from the brands we've helped transform.</p>
+            <p class="section-subtitle">Don't just take our word for it — hear from the businesses we have helped build and grow with technology.</p>
         </div>
         <div class="testimonials-grid">
             <div class="testimonial-card">
@@ -801,6 +918,7 @@
         </div>
     </section>
 
+    <!-- Call to Action Section -->
     <section class="cta-section" id="contact">
         <h2>Ready to Transform Your Brand?</h2>
         <p>Let's create something extraordinary together</p>
@@ -810,6 +928,7 @@
         </div>
     </section>
 
+    <!-- Footer Section -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">

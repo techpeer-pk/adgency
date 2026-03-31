@@ -15,7 +15,29 @@
             font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
             overflow-x: hidden;
             scroll-behavior: smooth;
+            cursor: none;
         }
+
+        /* Custom Cursor */
+        .cursor {
+            position: fixed;
+            width: 12px; height: 12px;
+            background: rgba(0, 42, 121, 0.8);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.15s ease;
+            /* mix-blend-mode:color-burn; */
+        }
+        .cursor-ring {
+            position: fixed;
+            width: 36px; height: 36px;
+            border: 1.5px solid rgba(6,182,212,0.4);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+        }        
         
         /* Navigation */
         nav {
@@ -60,6 +82,7 @@
             color: #333;
             font-weight: 500;
             transition: color 0.3s;
+            cursor: none;
         }
         
         .nav-links a:hover {
@@ -178,6 +201,11 @@
             gap: 20px;
         }
         
+        .hero-buttons a {
+            text-decoration: none;
+            cursor: none;
+        }
+
         .btn-primary {
             background: white;
             color: #667eea;
@@ -598,8 +626,9 @@
             color: #999;
         }
         
-        a {
+        .logo a {
             text-decoration: none;
+            cursor: none;
         }
 
         /* Responsive Improvements */
@@ -688,10 +717,14 @@
 </head>
 <body>
 
+    <!-- Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>    
+
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo"><a href="/adgency/index2.html">CreativeMinds</a></div>
+            <div class="logo"><a href="/">CreativeMinds</a></div>
             
             <ul class="nav-links" id="navLinks">
                 <li><a href="#services">Services</a></li>
@@ -969,6 +1002,18 @@
     </footer>
 
     <script>
+        // Custom cursor
+        const cursor = document.getElementById('cursor');
+        const ring = document.getElementById('cursorRing');
+        let mx=0,my=0,rx=0,ry=0;
+        document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cursor.style.left=mx-6+'px'; cursor.style.top=my-6+'px'; });
+        function animRing() { rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx-18+'px'; ring.style.top=ry-18+'px'; requestAnimationFrame(animRing); }
+        animRing();
+        document.querySelectorAll('a,button,.service-card,.team-card,.port-card,.blog-card').forEach(el => {
+            el.addEventListener('mouseenter',()=>{ cursor.style.transform='scale(2)'; ring.style.transform='scale(1.5)'; ring.style.borderColor='rgba(124,58,237,0.6)'; });
+            el.addEventListener('mouseleave',()=>{ cursor.style.transform='scale(1)'; ring.style.transform='scale(1)'; ring.style.borderColor='rgba(6,182,212,0.4)'; });
+        });      
+
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
 

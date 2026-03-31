@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexVora Technologies - Building Tomorrow's Technology</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #06b6d4;
+        }
+        
+        .cta-btn {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white !important;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.4);
+        }
+        
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            bottom: -100px;
+            left: -100px;
+        }
+        
+        .hero .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-content h1 {
+            font-size: 72px;
+            color: white;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+        
+        .hero-content .highlight {
+            background: linear-gradient(135deg, #f0fdf4 0%, #bbf7d0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-content p {
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #0891b2;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            border: 2px solid white;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #0891b2;
+        }
+        
+        .hero-image {
+            position: relative;
+        }
+        
+        .floating-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .stat {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-weight: 600;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 120px 40px;
+            background: #f8f9fa;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .section-label {
+            color: #0891b2;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+        
+        .section-title {
+            font-size: 56px;
+            font-weight: 900;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+        
+        .section-subtitle {
+            font-size: 20px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border-color: #06b6d4;
+        }
+        
+        .service-icon {
+            font-size: 56px;
+            margin-bottom: 30px;
+        }
+        
+        .service-card h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+        
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+        
+        /* Portfolio Section */
+        .portfolio {
+            padding: 120px 40px;
+            background: white;
+        }
+        
+        .portfolio-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(8, 145, 178, 0.92), transparent);
+            padding: 40px;
+            color: white;
+        }
+        
+        .portfolio-overlay h3 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .portfolio-overlay p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            padding: 100px 40px;
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+        }
+        
+        .stats-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 60px;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 64px;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+        
+        .stat-item p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 120px 40px;
+            background: #f8f9fa;
+        }
+        
+        .testimonials-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        
+        .author-info h4 {
+            font-size: 18px;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        /* Team Section */
+        .team {
+            padding: 120px 40px;
+            background: white;
+        }
+
+        .team-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .team-card {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 40px 28px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            border-color: #06b6d4;
+            box-shadow: 0 20px 50px rgba(6, 182, 212, 0.12);
+        }
+
+        .team-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            font-weight: 800;
+            margin: 0 auto 20px;
+        }
+
+        .team-card h3 {
+            font-size: 20px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 6px;
+        }
+
+        .team-role {
+            font-size: 13px;
+            font-weight: 600;
+            color: #0891b2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .team-location {
+            font-size: 13px;
+            color: #888;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 40px;
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            text-align: center;
+            color: white;
+        }
+        
+        .cta-section h2 {
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 30px;
+        }
+        
+        .cta-section p {
+            font-size: 24px;
+            margin-bottom: 50px;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: white;
+            padding: 80px 40px 40px;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-logo {
+            font-size: 26px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #06b6d4, #67e8f9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+        }
+        
+        .footer-section p {
+            color: #94a3b8;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 14px;
+        }
+        
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 15px;
+        }
+        
+        .footer-links a:hover {
+            color: #06b6d4;
+        }
+        
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid #1e293b;
+            text-align: center;
+            color: #64748b;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-image {
+                display: none;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 48px;
+            }
+            
+            .section-title {
+                font-size: 36px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">NexVora</div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#testimonials">Clients</a></li>
+                <li><a href="#contact" class="cta-btn">Start a Project</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>We Build <span class="highlight">Digital</span> Solutions That <span class="highlight">Scale</span></h1>
+                <p>Pakistan-born, globally trusted — we engineer world-class web apps, AI systems, SaaS products, and IT strategies that move businesses forward.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary">Start Your Project</a>
+                    <a href="#portfolio" class="btn-secondary">View Our Work</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-card">
+                    <div class="stat">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Projects Delivered</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">99%</div>
+                        <div class="stat-label">Client Satisfaction</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Global Offices</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <div class="section-label">What We Do</div>
+            <h2 class="section-title">Services That Drive Growth</h2>
+            <p class="section-subtitle">From strategy to deployment — we provide end-to-end technology solutions that scale with your ambitions and deliver real business results.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🌐</div>
+                <h3>Web & Mobile Development</h3>
+                <p>Custom, high-performance web and mobile applications built with React, Next.js, Flutter, and Node.js. Pixel-perfect UI, clean architecture, and on-time delivery.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3>AI / ML Solutions</h3>
+                <p>Intelligent automation, chatbots, computer vision, and NLP systems that give your business a competitive edge. We make AI practical and impactful.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">☁️</div>
+                <h3>SaaS Product Development</h3>
+                <p>From idea to launch — we design, build, and ship SaaS products. Full product lifecycle: discovery, MVP, growth features, and subscription infrastructure.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💡</div>
+                <h3>IT Consulting</h3>
+                <p>Strategic technology guidance for startups and enterprises. Architecture reviews, digital transformation roadmaps, and hands-on technical advisory.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔒</div>
+                <h3>DevOps & Cloud</h3>
+                <p>CI/CD pipelines, cloud infrastructure (AWS, DigitalOcean, Vercel), and security audits. We keep your systems fast, secure, and always available.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Data & Analytics</h3>
+                <p>Custom dashboards, reporting systems, and data pipelines. Turn your raw data into clear, actionable insights that drive smarter business decisions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="section-header">
+            <div class="section-label">Our Work</div>
+            <h2 class="section-title">Projects We're Proud Of</h2>
+            <p class="section-subtitle">A selection of solutions we have engineered for clients across Pakistan, Canada, and the USA — from startups to enterprises.</p>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800" alt="E-Commerce Platform">
+                <div class="portfolio-overlay">
+                    <h3>NexShop Platform</h3>
+                    <p>Full-stack e-commerce solution for a Pakistan-based retail brand</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800" alt="AI Solution">
+                <div class="portfolio-overlay">
+                    <h3>SmartFlow AI</h3>
+                    <p>AI-powered workflow automation for a Canadian logistics company</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800" alt="SaaS Dashboard">
+                <div class="portfolio-overlay">
+                    <h3>DataPulse Analytics</h3>
+                    <p>Real-time SaaS analytics dashboard for B2B clients across North America</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800" alt="Healthcare App">
+                <div class="portfolio-overlay">
+                    <h3>MediTrack App</h3>
+                    <p>Cross-platform mobile app for patient management and health tracking</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>Projects Delivered</p>
+            </div>
+            <div class="stat-item">
+                <h3>2</h3>
+                <p>Global Offices (PK + CA)</p>
+            </div>
+            <div class="stat-item">
+                <h3>4</h3>
+                <p>Core Service Verticals</p>
+            </div>
+            <div class="stat-item">
+                <h3>99%</h3>
+                <p>Client Satisfaction Rate</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <div class="section-header">
+            <div class="section-label">Our People</div>
+            <h2 class="section-title">The Minds Behind NexVora</h2>
+            <p class="section-subtitle">A passionate team of builders, strategists, and technologists operating across two continents to deliver world-class results.</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar">SR</div>
+                <h3>Syed A. Raza</h3>
+                <div class="team-role">Head of Development</div>
+                <div class="team-location">📍 Karachi, Pakistan</div>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">KI</div>
+                <h3>Khurram Ikram</h3>
+                <div class="team-role">Project Manager</div>
+                <div class="team-location">📍 Karachi, Pakistan</div>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">SK</div>
+                <h3>Syed Kashan</h3>
+                <div class="team-role">Chief Executive Officer</div>
+                <div class="team-location">📍 Canada</div>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">+</div>
+                <h3>You?</h3>
+                <div class="team-role">Join Our Team</div>
+                <div class="team-location">📍 Open Position</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-header">
+            <div class="section-label">Client Stories</div>
+            <h2 class="section-title">What Clients Say About Us</h2>
+            <p class="section-subtitle">Don't just take our word for it — hear from the businesses we have helped build and grow with technology.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"NexVora delivered our web platform ahead of schedule with exceptional quality. Their technical expertise and communication throughout the project was outstanding."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">AK</div>
+                    <div class="author-info">
+                        <h4>Ahmed Khan</h4>
+                        <p>CEO, RetailEdge Pakistan</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"The AI automation solution they built for us saved over 30 hours of manual work every week. ROI was visible within the first month. Highly recommended."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">ML</div>
+                    <div class="author-info">
+                        <h4>Mark Lawrence</h4>
+                        <p>Operations Director, SwiftLog Canada</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Professional, sharp, and genuinely invested in our success. NexVora understood our vision from day one and built exactly what we needed — and more."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SR</div>
+                    <div class="author-info">
+                        <h4>Sara Reynolds</h4>
+                        <p>Founder, DataPulse Inc. — USA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <h2>Ready to Build Something Great?</h2>
+        <p>Let's turn your idea into a world-class digital product</p>
+        <div class="hero-buttons" style="justify-content: center;">
+            <a href="mailto:hello@nexvora.com" class="btn-primary">Start a Project</a>
+            <a href="#portfolio" class="btn-secondary">View Our Work</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">NexVora</div>
+                <p>Pakistan-born, globally trusted technology solutions company. We build web apps, AI systems, SaaS products, and IT strategies that propel businesses forward.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Web & Mobile Dev</a></li>
+                    <li><a href="#">AI / ML Solutions</a></li>
+                    <li><a href="#">SaaS Development</a></li>
+                    <li><a href="#">IT Consulting</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul class="footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Team</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <ul class="footer-links">
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Twitter / X</a></li>
+                    <li><a href="#">hello@nexvora.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 NexVora Technologies. All rights reserved. &nbsp;|&nbsp; Karachi, Pakistan &nbsp;•&nbsp; Canada</p>
+        </div>
+    </footer>
+</body>
+</html>
